@@ -1,0 +1,273 @@
+{
+  "main_menu": {
+    "title": "Comandos disponibles",
+    "categories": [
+      {
+        "name": "Sistema",
+        "color": "green",
+        "commands": [
+          {
+            "name": "estado",
+            "description": "Muestra información del sistema",
+            "function": "show_system_status"
+          },
+          {
+            "name": "procesos",
+            "description": "Muestra los procesos activos",
+            "function": "show_processes"
+          },
+          {
+            "name": "espacio",
+            "description": "Muestra el uso de espacio en disco",
+            "function": "show_disk_space"
+          },
+          {
+            "name": "memoria",
+            "description": "Muestra el uso de memoria",
+            "function": "show_memory_usage"
+          },
+          {
+            "name": "red",
+            "description": "Muestra información de red",
+            "function": "show_network_info"
+          }
+        ]
+      },
+      {
+        "name": "Aprendizaje",
+        "color": "blue",
+        "commands": [
+          {
+            "name": "tutorial",
+            "description": "Muestra un tutorial interactivo",
+            "function": "show_interactive_tutorial"
+          },
+          {
+            "name": "aprende",
+            "description": "Muestra información sobre un tema de Linux",
+            "function": "learn_topic",
+            "usage": "aprende [tema]",
+            "requires_arg": true
+          },
+          {
+            "name": "comando",
+            "description": "Explica un comando de Linux",
+            "function": "explain_command",
+            "usage": "comando [cmd]",
+            "requires_arg": true
+          },
+          {
+            "name": "buscar",
+            "description": "Busca comandos relacionados",
+            "function": "search_commands",
+            "usage": "buscar [término]",
+            "requires_arg": true
+          }
+        ]
+      },
+      {
+        "name": "Productividad",
+        "color": "purple",
+        "commands": [
+          {
+            "name": "nota",
+            "description": "Guarda una nota rápida",
+            "function": "save_note",
+            "usage": "nota [texto]",
+            "requires_arg": true
+          },
+          {
+            "name": "notas",
+            "description": "Muestra todas las notas guardadas",
+            "function": "show_notes"
+          },
+          {
+            "name": "proyecto",
+            "description": "Crea un nuevo proyecto",
+            "function": "create_project",
+            "usage": "proyecto [nombre]",
+            "requires_arg": true
+          },
+          {
+            "name": "historial",
+            "description": "Muestra el historial de comandos",
+            "function": "show_history"
+          },
+          {
+            "name": "clima",
+            "description": "Muestra el clima actual (requiere curl)",
+            "function": "show_weather"
+          }
+        ]
+      },
+      {
+        "name": "Configuración",
+        "color": "cyan",
+        "commands": [
+          {
+            "name": "config",
+            "description": "Muestra y edita la configuración",
+            "function": "edit_config"
+          },
+          {
+            "name": "actualizar",
+            "description": "Verifica actualizaciones del script",
+            "function": "check_updates"
+          }
+        ]
+      },
+      {
+        "name": "Otras opciones",
+        "color": "yellow",
+        "commands": [
+          {
+            "name": "ayuda",
+            "description": "Muestra esta información",
+            "function": "show_help"
+          },
+          {
+            "name": "limpiar",
+            "description": "Limpia la pantalla",
+            "function": "clear_screen"
+          },
+          {
+            "name": "salir",
+            "description": "Sale del Terminal Assistant",
+            "function": "exit_assistant"
+          }
+        ]
+      }
+    ]
+  },
+  "command_explanations": {
+    "ls": {
+      "name": "ls - listar contenido del directorio",
+      "usage": "ls [OPCIONES] [ARCHIVO/DIRECTORIO]",
+      "description": "Muestra los archivos y directorios en el directorio actual o especificado.",
+      "options": [
+        {
+          "flag": "-l",
+          "description": "Formato largo (permisos, propietario, tamaño, fecha)"
+        },
+        {
+          "flag": "-a",
+          "description": "Muestra archivos ocultos (que comienzan con .)"
+        },
+        {
+          "flag": "-h",
+          "description": "Tamaños legibles por humanos (KB, MB, GB)"
+        },
+        {
+          "flag": "-R",
+          "description": "Recursivo - muestra subdirectorios"
+        }
+      ],
+      "examples": [
+        {
+          "command": "ls -la",
+          "description": "Lista detallada incluyendo archivos ocultos"
+        },
+        {
+          "command": "ls -lh /var",
+          "description": "Lista detallada del directorio /var con tamaños legibles"
+        }
+      ]
+    },
+    "cd": {
+      "name": "cd - cambiar directorio",
+      "usage": "cd [DIRECTORIO]",
+      "description": "Cambia el directorio de trabajo actual.",
+      "notes": [
+        {
+          "command": "cd",
+          "description": "Sin argumentos, te lleva a tu directorio home"
+        },
+        {
+          "command": "cd -",
+          "description": "Te lleva al directorio anterior"
+        },
+        {
+          "command": "cd ..",
+          "description": "Sube un nivel de directorio"
+        },
+        {
+          "command": "cd ~",
+          "description": "Te lleva a tu directorio home"
+        }
+      ]
+    },
+    "grep": {
+      "name": "grep - búsqueda global de expresiones regulares",
+      "usage": "grep [OPCIONES] PATRÓN [ARCHIVO...]",
+      "description": "Busca patrones de texto en archivos.",
+      "options": [
+        {
+          "flag": "-i",
+          "description": "Ignora mayúsculas/minúsculas"
+        },
+        {
+          "flag": "-r",
+          "description": "Búsqueda recursiva en directorios"
+        },
+        {
+          "flag": "-v",
+          "description": "Invertir coincidencia (líneas que NO coinciden)"
+        },
+        {
+          "flag": "-n",
+          "description": "Muestra número de línea"
+        },
+        {
+          "flag": "-l",
+          "description": "Solo muestra nombres de archivos que coinciden"
+        }
+      ],
+      "examples": [
+        {
+          "command": "grep -i \"error\" /var/log/syslog",
+          "description": "Busca la palabra 'error' (sin distinguir mayúsculas) en el archivo syslog"
+        },
+        {
+          "command": "grep -r \"función\" ~/proyectos/",
+          "description": "Busca la palabra 'función' en todos los archivos bajo el directorio proyectos"
+        }
+      ]
+    }
+  },
+  "tutorials": {
+    "basic_linux": {
+      "title": "Conceptos básicos de Linux",
+      "steps": [
+        {
+          "title": "El sistema de archivos",
+          "content": "Linux organiza los archivos en una estructura jerárquica. Todo comienza en la raíz /, y desde ahí se ramifica en varios directorios como /home, /etc, /var, etc."
+        },
+        {
+          "title": "La terminal",
+          "content": "La terminal es una interfaz de texto para interactuar con el sistema. Permite ejecutar comandos y scripts para realizar tareas."
+        },
+        {
+          "title": "Navegación básica",
+          "content": "Usa 'cd' para cambiar de directorio, 'ls' para listar archivos, y 'pwd' para mostrar el directorio actual."
+        }
+      ]
+    },
+    "file_permissions": {
+      "title": "Permisos de archivos",
+      "steps": [
+        {
+          "title": "Los permisos en Linux",
+          "content": "Los permisos controlan quién puede leer, escribir o ejecutar archivos. Se dividen en tres categorías: propietario, grupo y otros."
+        },
+        {
+          "title": "Visualización de permisos",
+          "content": "El comando 'ls -l' muestra los permisos como una cadena de caracteres como 'rwxr-xr--'."
+        },
+        {
+          "title": "Modificación de permisos",
+          "content": "Usa 'chmod' para cambiar permisos. Por ejemplo, 'chmod +x script.sh' hace un archivo ejecutable."
+        }
+      ]
+    }
+  }
+}
